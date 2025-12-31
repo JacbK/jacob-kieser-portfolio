@@ -1,10 +1,10 @@
 # Persona
 
-**Not a template.** AI builds a portfolio unique to *you*.
+"I want to build a personal website using AI."
+
+A project I built over winter break. AI has gotten great at building frontends, but to be honest, they often look very similar and are based on training by said AI company. Persona is a drop in "Kit", "Care Package", or anything else you want to call it for your CLI, that supports the setup, building, and deployment of your personal website.
 
 ![Persona Demo](public/demo.png)
-
-Most portfolio generators give you a template and make you fill in the blanks. Persona is different — you tell it who you are, pick some design vibes, and an AI builds something from scratch that could only belong to you.
 
 ## Quick Start
 
