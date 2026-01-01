@@ -38,9 +38,9 @@ For best results, use the most capable model available:
 | Claude Code | Opus 4.5 | `claude --model opus` or `/model opus` in-session |
 | Gemini CLI | Gemini 3 Pro | `gemini --model gemini-3-pro` |
 | Codex | GPT-5.2-Codex | `codex --model gpt-5.2-codex` |
-| Aider | Claude Opus 4.5 | `aider --model claude-opus-4-5-20251101` |
+| Cursor | Claude Opus 4.5 | `Select in Cursor` |
 
-**Note:** Free tiers may have model restrictions. Gemini CLI free tier may downgrade to Flash due to quota limits.
+Basically just use the best model that is available, as the results are heavily reliant on the model.
 
 ## How It Works
 
@@ -55,18 +55,6 @@ Persona is a framework that gives AI coding agents everything they need to build
 
 The result isn't a filled-in template, its a custom site based on your selections that doesn't look like AI model training datasets.
 
-## Add Your Materials (Optional)
-
-Drop files in `/materials` before running setup or upload them during setup:
-
-```
-materials/
-├── documents/
-│   └── resume.pdf       # AI extracts your experience
-└── images/
-    └── headshot.jpg     # Used in your portfolio
-```
-
 ## After Setup
 
 Talk to your AI assistant naturally:
@@ -74,7 +62,7 @@ Talk to your AI assistant naturally:
 - *"Add my new project X"*
 - *"Update my work experience"*
 - *"Make the hero section more bold"*
-- *"Deploy to Vercel"*
+- *"Deploy to Vercel/Github Actions"*
 
 Run `./setup.sh` again anytime to edit your config.
 
