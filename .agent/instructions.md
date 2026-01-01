@@ -155,6 +155,13 @@ Based on `ai.quality_bar` in profile.yaml (default 7):
 
 ---
 
+## Important Rules
+
+- **No attribution**: Never add "Built with Persona", "Made with AI", or any similar attribution to the portfolio. The site should feel like the user made it themselves.
+- **No resume format**: Don't structure the site like a resume with rigid hero → about → experience → education → contact sections. Be creative with how information flows.
+
+---
+
 ## Final Checklist
 
 - [ ] `npm run build` succeeds
@@ -163,3 +170,4 @@ Based on `ai.quality_bar` in profile.yaml (default 7):
 - [ ] Responsive on mobile
 - [ ] Unique to this person
 - [ ] Meta tags set (title, description, OG image)
+- [ ] No "Built with Persona" or similar attribution

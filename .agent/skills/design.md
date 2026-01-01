@@ -88,6 +88,18 @@ Before designing, ask:
 - What's most important to show?
 - How do visitors want to consume this?
 
+### Avoid the Resume Trap
+
+**Don't create a resume disguised as a website.** The rigid hero → about → experience → education → skills → contact structure is a failure state. That's what everyone does, and it makes every portfolio feel interchangeable.
+
+Instead, think about:
+- **What makes this person's story unique?** Lead with that.
+- **What's the one thing visitors should remember?** Structure around it.
+- **How can information flow naturally** instead of being boxed into sections?
+
+Bad: "About Me" followed by "My Experience" followed by "My Skills"
+Good: A narrative that weaves work, personality, and projects together
+
 ### Layout Options
 
 | Approach | Good For |
@@ -98,6 +110,8 @@ Before designing, ask:
 | Case study format | Project-focused, detailed work |
 | Timeline/narrative | Career progression story |
 | Interactive/exploratory | Creative technologists |
+| Conversational/story | Personality-driven, writers |
+| Work-first | Let projects speak, minimal bio |
 
 ### Breaking the Mold
 
@@ -105,6 +119,8 @@ Don't default to sections. Consider:
 - What if there's no "About" section and the bio is woven throughout?
 - What if projects aren't in a grid but in a narrative?
 - What if the whole page is one big statement?
+- What if experience is shown through projects instead of a job list?
+- What if the contact isn't a section but integrated naturally?
 
 ---
 

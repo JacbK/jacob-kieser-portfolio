@@ -671,10 +671,7 @@ ${config.notes.split('\n').map((line) => `  ${line}`).join('\n')}
                 <span className="font-semibold">Next Step</span>
               </div>
               <p className="text-neutral-400 text-sm mb-4">
-                Go back to your terminal and press <kbd className="bg-neutral-700 px-2 py-1 rounded text-xs font-mono">Ctrl+C</kbd> to continue the setup.
-              </p>
-              <p className="text-neutral-500 text-xs">
-                The AI will automatically start building your portfolio.
+                Close this tab and return to your terminal. The AI will automatically start building your portfolio.
               </p>
             </div>
 
@@ -687,6 +684,9 @@ ${config.notes.split('\n').map((line) => `  ${line}`).join('\n')}
               </button>
               <button
                 onClick={() => {
+                  // Try to close the tab - this works if the page was opened by a script
+                  window.close();
+                  // If window.close() didn't work (browser security), show a message
                   setShowSuccessModal(false);
                   setConfigSaved(true);
                 }}

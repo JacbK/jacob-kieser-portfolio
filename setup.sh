@@ -32,8 +32,8 @@ cat << "EOF"
 EOF
 echo -e "${NC}"
 
-echo -e "${BOLD}AI-Powered Portfolio Generator${NC}"
-echo -e "${DIM}Your unique portfolio, built by AI${NC}"
+echo -e "${BOLD}Drop-in portfolio kit for AI coding agents${NC}"
+echo -e "${DIM}Works with Claude Code, Codex, Gemini CLI, Aider & more${NC}"
 echo ""
 
 cd "$PROJECT_DIR"
@@ -132,6 +132,22 @@ if echo "$REMOTE_URL" | grep -qi "JacbK/persona\|jacobkieser/persona"; then
     echo ""
 else
     echo -e "  $CHECK Git repository configured"
+fi
+
+# Delete template README if it exists and still has Persona content
+if [ -f "README.md" ] && grep -q "Persona" README.md 2>/dev/null; then
+    echo ""
+    echo -e "  ${YELLOW}Found template README.md${NC}"
+    echo -e "  ${DIM}This README is about Persona, not your portfolio${NC}"
+    echo ""
+    read -p "  Delete template README? [Y/n]: " delete_readme
+    delete_readme=${delete_readme:-Y}
+    if [[ "$delete_readme" =~ ^[Yy]$ ]]; then
+        rm README.md
+        echo -e "  $CHECK Deleted template README"
+    else
+        echo -e "  ${DIM}Keeping README (you can edit it later)${NC}"
+    fi
 fi
 
 echo ""
