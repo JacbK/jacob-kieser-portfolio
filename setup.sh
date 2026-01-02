@@ -134,20 +134,10 @@ else
     echo -e "  $CHECK Git repository configured"
 fi
 
-# Delete template README if it exists and still has Persona content
+# Auto-delete template README if it exists and still has Persona content
 if [ -f "README.md" ] && grep -q "Persona" README.md 2>/dev/null; then
-    echo ""
-    echo -e "  ${YELLOW}Found template README.md${NC}"
-    echo -e "  ${DIM}This README is about Persona, not your portfolio${NC}"
-    echo ""
-    read -p "  Delete template README? [Y/n]: " delete_readme
-    delete_readme=${delete_readme:-Y}
-    if [[ "$delete_readme" =~ ^[Yy]$ ]]; then
-        rm README.md
-        echo -e "  $CHECK Deleted template README"
-    else
-        echo -e "  ${DIM}Keeping README (you can edit it later)${NC}"
-    fi
+    rm README.md
+    echo -e "  $CHECK Deleted template README"
 fi
 
 echo ""
@@ -199,35 +189,8 @@ if [ -f "profile.yaml" ]; then
         echo -e "  ${DIM}Tip: Run ./setup.sh again anytime to edit your config${NC}"
     fi
 else
-    # Check for downloaded profile.yaml in common locations
-    FOUND_PROFILE=""
-    for location in ~/Downloads/profile.yaml ~/profile.yaml; do
-        if [ -f "$location" ]; then
-            FOUND_PROFILE="$location"
-            break
-        fi
-    done
-
-    if [ -n "$FOUND_PROFILE" ]; then
-        echo -e "  ${YELLOW}○${NC} Found profile.yaml at: ${CYAN}$FOUND_PROFILE${NC}"
-        echo ""
-        echo -e "  ${DIM}Would you like to use this config?${NC}"
-        echo -e "    1) Yes, copy it to this project"
-        echo -e "    2) No, create a new config"
-        echo ""
-        read -p "  Select [1]: " use_found
-        use_found=${use_found:-1}
-
-        if [ "$use_found" = "1" ]; then
-            cp "$FOUND_PROFILE" ./profile.yaml
-            echo -e "  $CHECK Copied profile.yaml to project"
-            NEED_CONFIG=false
-        else
-            NEED_CONFIG=true
-        fi
-    else
-        NEED_CONFIG=true
-    fi
+    # No profile.yaml in project directory - need to configure
+    NEED_CONFIG=true
 fi
 
 if [ "$NEED_CONFIG" = true ]; then
@@ -311,58 +274,52 @@ echo ""
 echo -e "${BOLD}Step 4: AI Assistant${NC}"
 echo ""
 
-# Read CLI preference from profile.yaml or prompt user to select
-CLI_TOOL=""
-if [ -f "profile.yaml" ]; then
-    CLI_FROM_FILE=$(grep "^cli:" profile.yaml | sed 's/cli: *"\([^"]*\)".*/\1/' | tr -d ' ')
-    if [ -n "$CLI_FROM_FILE" ]; then
-        CLI_TOOL="$CLI_FROM_FILE"
-    fi
+# Always prompt user to select their AI coding assistant
+echo -e "  ${BOLD}Which AI coding assistant will you use?${NC}"
+echo ""
+echo -e "    1) Claude Code ${DIM}(Anthropic)${NC}"
+echo -e "    2) Gemini CLI ${DIM}(Google)${NC}"
+echo -e "    3) Codex ${DIM}(OpenAI)${NC}"
+echo -e "    4) Aider"
+echo -e "    5) Cursor"
+echo -e "    6) Other"
+echo ""
+
+# Detect installed CLIs to show which are available
+DETECTED_CLIS=""
+if command -v claude &> /dev/null; then
+    DETECTED_CLIS="${DETECTED_CLIS}claude-code "
+fi
+if command -v gemini &> /dev/null; then
+    DETECTED_CLIS="${DETECTED_CLIS}gemini "
+fi
+if command -v codex &> /dev/null; then
+    DETECTED_CLIS="${DETECTED_CLIS}codex "
+fi
+if command -v aider &> /dev/null; then
+    DETECTED_CLIS="${DETECTED_CLIS}aider "
 fi
 
-# If no CLI preference found, prompt user to select
-if [ -z "$CLI_TOOL" ]; then
-    echo -e "  ${BOLD}Which AI coding assistant will you use?${NC}"
-    echo ""
-    echo -e "    1) Claude Code ${DIM}(Anthropic)${NC}"
-    echo -e "    2) Gemini CLI ${DIM}(Google)${NC}"
-    echo -e "    3) Codex ${DIM}(OpenAI)${NC}"
-    echo -e "    4) Aider"
-    echo -e "    5) Cursor"
-    echo -e "    6) Other"
-    echo ""
-
-    # Detect installed CLIs to show recommendation
-    DETECTED=""
-    if command -v claude &> /dev/null; then
-        DETECTED="claude-code"
-    elif command -v gemini &> /dev/null; then
-        DETECTED="gemini"
-    elif command -v codex &> /dev/null; then
-        DETECTED="codex"
-    elif command -v aider &> /dev/null; then
-        DETECTED="aider"
-    fi
-
-    if [ -n "$DETECTED" ]; then
-        echo -e "  ${DIM}Detected: $DETECTED${NC}"
-    fi
-
-    read -p "  Select [1]: " cli_choice
-    cli_choice=${cli_choice:-1}
-
-    case "$cli_choice" in
-        1) CLI_TOOL="claude-code" ;;
-        2) CLI_TOOL="gemini" ;;
-        3) CLI_TOOL="codex" ;;
-        4) CLI_TOOL="aider" ;;
-        5) CLI_TOOL="cursor" ;;
-        6) CLI_TOOL="other" ;;
-        *) CLI_TOOL="claude-code" ;;
-    esac
-
-    echo ""
+if [ -n "$DETECTED_CLIS" ]; then
+    echo -e "  ${DIM}Detected:${NC} ${DETECTED_CLIS}"
 fi
+
+read -p "  Select: " cli_choice
+
+case "$cli_choice" in
+    1) CLI_TOOL="claude-code" ;;
+    2) CLI_TOOL="gemini" ;;
+    3) CLI_TOOL="codex" ;;
+    4) CLI_TOOL="aider" ;;
+    5) CLI_TOOL="cursor" ;;
+    6) CLI_TOOL="other" ;;
+    *)
+        echo -e "  ${YELLOW}Invalid selection, please choose 1-6${NC}"
+        exit 1
+        ;;
+esac
+
+echo ""
 
 echo -e "  Selected: ${CYAN}$CLI_TOOL${NC}"
 echo ""
