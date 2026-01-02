@@ -685,8 +685,14 @@ case "$CLI_TOOL" in
     "gemini")
         echo -e "${CYAN}Starting Google Gemini CLI...${NC}"
         echo ""
+        
+        # Bundle instructions for Gemini
+        if [ -f "scripts/bundle-gemini-instructions.sh" ]; then
+            ./scripts/bundle-gemini-instructions.sh
+        fi
+
         echo -e "  ${DIM}When Gemini starts, say:${NC}"
-        echo -e "  ${GREEN}\"Read .agent/instructions.md and build my portfolio\"${NC}"
+        echo -e "  ${GREEN}\"Read .agent/gemini_context.md and build my portfolio\"${NC}"
         echo ""
         read -p "Press Enter to launch Gemini..."
         exec gemini

@@ -48,6 +48,7 @@ materials/documents/*
 src/data/user.json
 profile.yaml
 .config-saved
+.agent/gemini_context.md
 
 # vercel
 .vercel
