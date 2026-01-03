@@ -157,6 +157,12 @@ if [ ! -d "node_modules" ]; then
         echo -e "  ${YELLOW}Installing with verbose output...${NC}"
         npm install
     fi
+
+    # Fix for Tailwind 4 / lightningcss on macOS ARM64
+    if [[ "$OSTYPE" == "darwin"* ]] && [[ "$(uname -m)" == "arm64" ]]; then
+        echo -e "  ${DIM}Verifying binaries for Apple Silicon...${NC}"
+        npm rebuild lightningcss --silent >/dev/null 2>&1 || true
+    fi
 else
     echo -e "  $CHECK Dependencies already installed"
 fi
