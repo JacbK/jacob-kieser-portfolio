@@ -864,7 +864,7 @@ ${config.notes.split('\n').map((line) => `  ${line}`).join('\n')}
                     className="w-full bg-neutral-900 border border-neutral-800 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
                   >
                     <option value="claude-code">Claude Code</option>
-                    <option value="codex">GitHub Codex</option>
+                    <option value="codex">OpenAI Codex</option>
                     <option value="gemini">Google Gemini CLI</option>
                     <option value="aider">Aider</option>
                     <option value="cursor">Cursor AI</option>
