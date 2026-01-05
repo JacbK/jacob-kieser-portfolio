@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/jacob-kieser-portfolio',
 };
 
 export default nextConfig;
