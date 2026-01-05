@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.claude
@@ -36,13 +34,6 @@ yarn-error.log*
 
 # claude code local settings
 .claude/settings.local.json
-
-# user materials (don't commit personal files)
-materials/images/*
-materials/documents/*
-!materials/images/.gitkeep
-!materials/documents/.gitkeep
-!materials/README.md
 
 # populated user data
 .config-saved
