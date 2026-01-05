@@ -70,7 +70,7 @@ export default function Home() {
             title="Persona"
             description="An intelligent portfolio engine that gathers context from resumes and codebases to generate unique, authentic digital identities."
             tech="Next.js, AI CLI's"
-            link="https://github.com/JacbK/persona"
+            link="https://jacbk.github.io/persona/"
           />
         </div>
       </section>
