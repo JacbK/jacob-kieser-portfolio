@@ -1,0 +1,114 @@
+name: "Jacob Kieser"
+email: "jacobk2112@gmail.com"
+github: ""
+linkedin: ""
+twitter: ""
+website: ""
+cli: "gemini"
+
+sections:
+  - hero
+  - about
+  - experience
+  - projects
+  - education
+  - contact
+
+design:
+  creativity: 7
+  simplicity: 10
+  playfulness: 2
+  animation: 8
+  color_intensity: 3
+design_inspirations:
+  - name: "NY Times"
+    # Extracted attributes (use these programmatically)
+    attributes:
+      fontFamily: "Georgia"
+      fontSize: 38
+      fontWeight: 400
+      letterSpacing: "normal"
+      colorBg: "#000000"
+      colorText: "#ffffff"
+      colorAccent: "#5e6ad2"
+      maxWidth: 1200
+      alignment: "left"
+      sectionSpacing: 100
+      padding: 40
+      motionDuration: 200
+      motionStyle: "fade"
+      borderWidth: 1
+      borderRadius: 0
+    # Original descriptions (for reference)
+    descriptions:
+      typography: "Georgia/Serif headers (28-48px), Sans body (16-18px)"
+      colors: "Black text, white bg, minimal red accents"
+      layout: "Multi-column grid, asymmetric breakup, sidebars"
+      spacing: "Tight line-height (1.4), dense paragraph spacing"
+      motion: "None - static content focus"
+      details: "Thin divider lines (1px), occasional images, text-heavy"
+  - name: "Rolex"
+    # Extracted attributes (use these programmatically)
+    attributes:
+      fontFamily: "Serif"
+      fontSize: 38
+      fontWeight: 400
+      letterSpacing: "normal"
+      colorBg: "#d4af37"
+      colorText: "#ffffff"
+      colorAccent: "#d4af37"
+      maxWidth: 700
+      alignment: "centered"
+      sectionSpacing: 150
+      padding: 40
+      motionDuration: 600
+      motionStyle: "fade"
+      borderWidth: 1
+      borderRadius: 0
+    # Original descriptions (for reference)
+    descriptions:
+      typography: "Serif headers (28-48px), light sans body (14-16px)"
+      colors: "Black/white/gold (#d4af37), minimal palette"
+      layout: "Narrow column (700px), centered, ample margins"
+      spacing: "Luxurious (100-200px), single element focus"
+      motion: "Slow fades (600ms), elegant transitions"
+      details: "Elegant dividers, gold accents, serif details"
+  - name: "The Verge"
+    # Extracted attributes (use these programmatically)
+    attributes:
+      fontFamily: "Optimist"
+      fontSize: 44
+      fontWeight: 400
+      letterSpacing: "normal"
+      colorBg: "#000000"
+      colorText: "#ffffff"
+      colorAccent: "#5e6ad2"
+      maxWidth: 1200
+      alignment: "left"
+      sectionSpacing: 50
+      padding: 40
+      motionDuration: 200
+      motionStyle: "fade"
+      borderWidth: 1
+      borderRadius: 8
+    # Original descriptions (for reference)
+    descriptions:
+      typography: "__Optimist/serif headlines (32-56px), sans body (17px)"
+      colors: "Black/white base, neon accent (hot pink/lime)"
+      layout: "Card-based grid, featured hero, sidebar modules"
+      spacing: "Moderate (40-60px gaps), card padding (24px)"
+      motion: "Smooth image lazy-loads, hover scale effects"
+      details: "Rounded cards (8px), soft shadows, category tags"
+
+content:
+  tone: "conversational"
+  length: "balanced"
+  focus: "experience"
+
+ai:
+  quality_bar: 7
+  research_depth: 6
+  copy_creativity: 5
+
+notes: |
+  I want the design to be creative, but not tryhard.
